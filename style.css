@@ -373,9 +373,35 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--primary-color);
+    z-index: 100;
   }
   .video-play-btn i {
     color: #000;
+  }
+  .video-play-btn:after{
+    content: "";
+    width: 110%;
+    height: 110%;
+    position: absolute;
+    /* border:2px solid #fff; */
+    /* transform: scale(1.3); */
+    background-color: #fff;
+    border-radius: 50%;
+    animation:animeCircle2 1s ease infinite;
+    /* animation-direction: alternate; */
+    z-index: -1;
+  }
+  @keyframes animeCircle2{
+    0%{
+      width: 110%;
+      height: 110%;
+      opacity: 1;
+    }
+    100%{
+      width: 200%;
+    height: 200%;
+      opacity: 0;
+    }
   }
   #our-video {
     font-size: 20px;
@@ -681,6 +707,9 @@ body {
   #recently-work {
     text-align: center;
     margin-top: 3rem;
+}
+#recently-work .service-section-head{
+  padding: 0rem 2rem;
 }
   .card-recent-work img{
     width: 100%;
@@ -999,11 +1028,15 @@ body {
   overflow: hidden;
 }
 .leader-btn.main-btn::after{
-  background-image:linear-gradient(to right, );
+  background-color: #fff;
   /* color:var(--secondary-color); */
+}
+.leader-btn.main-btn span {
+  color: var(--primary-color);
 }
 .leader-btn.main-btn:hover.leader-btn.main-btn span {
   color: var(--secondary-color);
+  /* color:#fff; */
 }
   /*===================Leader section end====================*/
   /*===================Footer section end====================*/
@@ -1099,6 +1132,7 @@ body {
   display: flex;
   background-color: #fff;
   align-items: center;
+  width: 300px;
 }
 .last-input input {
   border: none;
@@ -1108,7 +1142,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 82%;
+  width: 240px;
   font-size: 17px;
 }
 .last-input input::placeholder{
@@ -1121,7 +1155,7 @@ body {
   text-decoration: none;
   color:var(--secondary-color);
 }
-.last-input-btn{
+.last-input-btn {
   display: flex;
   align-items: center;
   background-color: var(--secondary-color);

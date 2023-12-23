@@ -44,6 +44,32 @@ body {
   transform: translateY(0%);
   visibility: visible;
 }
+.carousel-control-next-icon{
+  background-image: url("./assets/images/right-arrow.png")!important;
+  filter: brightness(0) invert(1);
+  border-radius: 50%;
+  border:2px solid #fff;
+  background-size: 20px!important;
+  width: 45px!important;
+  height: 45px!important;
+  display: inline-block;
+  position: absolute;
+  bottom: 5%;
+  right: 35%;
+}
+.carousel-control-prev-icon{
+  background-image: url("./assets/images/back.png")!important;
+  filter: brightness(0) invert(1);
+  border-radius: 50%;
+  border:2px solid #fff;
+  background-size: 20px!important;
+  width: 45px!important;
+  height: 45px!important;
+  display: inline-block;
+  position: absolute;
+  bottom: 15%;
+  right: -79vw;
+}
 /* #banner {
   background-image: url("https://pixydrops.com/agriox/assets/images/backgrounds/main-slider-v1-1.jpg");
   background-repeat: no-repeat;
@@ -145,6 +171,9 @@ body {
   transform: scale(1);
   transition-duration: 300ms;
 }
+.overlay-back-img img{
+  transform: scale(1);
+}
 .successFull-project-img-div img {
   width: 100%;
   object-fit: contain;
@@ -210,6 +239,10 @@ body {
     /* right: 0; */
     top: 10px;
   }
+  .menu-items-logo{
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+  }
   .menu-items {
     padding: 1rem 0;
     background-color: var(--secondary-color);
@@ -225,19 +258,89 @@ body {
     left: 0;
     top: 0;
     z-index: 10000;
-    padding: 6rem 0;
+    /* padding: 6rem 0; */
+  }
+  .menu-items-ul{
+    padding-left: 1rem;
   }
   .menu-items li a {
     color:#fff;
     text-decoration: none;
     font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
   }
   .menu-items li {
     list-style: none;
     font-size: 1.3rem;
-    margin: 1rem 0 0 1rem;
+    margin: 1rem 1rem 0 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
   }
-
+  .menu-items li::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: -13%;
+    height: .5px;
+    background-color: #ffffff3d;
+  }
+  .inner-menu-btn {
+    padding: 0px 7px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    font-weight: 600;
+    position: relative;
+    transition-duration: 500ms;
+}
+.openNestedLinksBtn{
+  position: absolute;
+  inset: 0;
+}
+.nested-ul-div{
+  height: 0;
+  overflow: hidden;
+}
+.nested-ul-links{
+  height: 0;
+  overflow: hidden;
+  transition-duration: 300ms;
+}
+.openNestedUL{
+  position: absolute;
+  right: 0;
+  height: 27px;
+  width: 27px;
+  margin-right: 1rem;
+  margin-top: -27px;
+  opacity: 0;
+}
+  .nav-footer-content{
+    display: flex;
+    align-items: center;
+    padding: 6px 1rem;
+  }
+  .nav-footer-content p{
+    margin-bottom: 0;
+    color: #fff;
+  }
+  .nav-footer-content-icon i{
+    width: 40px;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
   .input-checkbox-ham:checked ~ .menu-items {
     transform: translateX(0);
   }
@@ -305,6 +408,7 @@ body {
   #our-intro {
     margin: 10px;
     padding-top: 4rem;
+    margin-bottom: 5rem;
 }
   .our-intro-ul {
     padding: 0;
@@ -375,9 +479,32 @@ body {
   }
   /*===================our intro section end====================*/
   /*===================Video section start====================*/
+  .video-div-parent{
+    position: absolute;
+  }
   .our-video-div {
     position: relative;
     margin: 10px;
+  }
+  .video-div-parent {
+    position: fixed;
+    left: 50vw;
+    top: 50vw;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    background-color: rgba(0,0,0,.7);
+    padding: 12rem;
+}
+  .video-tag{
+    object-fit: cover;
+    width: 90vw;
+  }
+  .stop-video{
+    font-size: 2rem;
+    text-align: right;
+  }
+  .stop-video i{
+    color:#fff;
   }
   .our-video-div img {
     width: 100%;
@@ -415,6 +542,9 @@ body {
     animation:animeCircle2 1s ease infinite;
     /* animation-direction: alternate; */
     z-index: -1;
+  }
+  .visibilityOnOff{
+    visibility: hidden;
   }
   @keyframes animeCircle2{
     0%{
@@ -696,6 +826,33 @@ body {
   font-family: "Shadows Into Light", cursive;
   font-size: 33px;
   margin-top: 1rem;
+}
+
+
+
+/* .our-video-div2 {
+  position: relative;
+  margin: 10px;
+} */
+.video-div-parent2 {
+  position: fixed;
+  left: 50vw;
+  top: 50vw;
+  transform: translate(-50%,-50%);
+  z-index: 1000;
+  background-color: rgba(0,0,0,.7);
+  padding: 12rem;
+}
+.video-tag2{
+  object-fit: cover;
+  width: 90vw;
+}
+.stop-video2{
+  font-size: 2rem;
+  text-align: right;
+}
+.stop-video2 i{
+  color:#fff;
 }
 
 @keyframes animeCircle{
@@ -1245,7 +1402,7 @@ body {
   margin-bottom: 2rem;
 }
 .last-input {
-  border-radius: 30px;
+  border-radius: 50px;
   display: flex;
   background-color: #fff;
   align-items: center;
